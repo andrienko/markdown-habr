@@ -1,6 +1,6 @@
 {
   "name": "markdown-habr",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Parse github flavored markdown as habrahabr xml markup",
   "main": "lib",
   "repository": {
