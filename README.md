@@ -51,4 +51,7 @@ There are also options available. You can specify some or all of them to overrid
     };
     
     var result = mdhabr.parse("# Hello, I am a title \nAnd I am some text', options);
+    
+## Disclaimer
 
+I am making the tool for myself mostly. Don't be surprised by its illogics.

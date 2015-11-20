@@ -30,7 +30,8 @@ var fs = require('fs'),
       p: 'pedantic',
       t: 'no-smart-punctuation',
       r: 'use-p',
-      v: 'version'
+      v: 'version',
+      o: 'remove-yo'
     }
   });
 
@@ -64,6 +65,7 @@ var fs = require('fs'),
     console.log('-p, --pedantic               conform to obscure parts of markdown.pl');
     console.log('-z, --sanitize               strip HTML tags from input');
     console.log('-t, --no-smart-punctuation   disable smart typograhic punctuation for things like quotes and dashes');
+    console.log('-o, --remove-yo              replace "ё" with "е"');
 
     process.exit(0);
   }
@@ -88,7 +90,8 @@ var fs = require('fs'),
     gfm: args['no-gfm'] === undefined,
     sanitize: args.sanitize !== undefined,
     punctuation: args['no-smart-punctiation'] === undefined,
-    use_paragraph_tags: args['use-p'] !== undefined
+    use_paragraph_tags: args['use-p'] !== undefined,
+    remove_yo: args['remove-yo'] !== undefined
   };
 
   parsed = markdown_habr.parse(file_contents, parser_options);
