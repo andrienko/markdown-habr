@@ -1,0 +1,32 @@
+{
+  "name": "markdown-habr",
+  "version": "0.0.1",
+  "description": "Parse github flavored markdown as habrahabr xml markup",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/andrienko/markdown-habr"
+  },
+  "keywords": [
+    "markdown",
+    "habrahabr",
+    "parser"
+  ],
+  "preferGlobal": true,
+  "author": "andrienko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andrienko/markdown-habr/issues"
+  },
+  "homepage": "https://github.com/andrienko/markdown-habr",
+  "dependencies": {
+    "marked": "^0.3.5"
+  },
+  "bin": {
+    "habrmd": "cmd.js",
+    "markdown-habr": "cmd.js"
+  }
+}
