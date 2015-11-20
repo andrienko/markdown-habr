@@ -27,7 +27,8 @@ var fs = require('fs'),
       g: 'no-gfm',
       p: 'pedantic',
       t: 'no-smart-punctuation',
-      r: 'use-p'
+      r: 'use-p',
+      v: 'version'
     }
   });
 
@@ -42,6 +43,11 @@ var fs = require('fs'),
     file_name_destination = args.destination;
   } else if (args._[1] !== undefined) {
     file_name_destination = args._[1];
+  }
+
+  if (args.version !== undefined) {
+    console.log(markdown_habr.version);
+    process.exit(0);
   }
 
   if (args.help !== undefined || args._[0] === '?' || args['?'] !== undefined) {

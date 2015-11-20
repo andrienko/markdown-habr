@@ -7,8 +7,9 @@ var marked = require('marked'),
 
 module.exports = (function () {
   'use strict';
+  var version = '0.0.1',
 
-  var default_options = {
+    default_options = {
       add_anchors: true,
       add_anchor_links: true,
       anchor_slugs: true,
@@ -47,6 +48,7 @@ module.exports = (function () {
     },
 
     lib = {
+      version: version,
       parse: function (contents, new_options) {
         options = extend(default_options, new_options);
 
