@@ -26,6 +26,6 @@
     "slug": "^0.9.1"
   },
   "bin": {
-    "mdhabr": "bin/mdhabr"
+    "mdhabr": "bin/mdhabr.js"
   }
 }
