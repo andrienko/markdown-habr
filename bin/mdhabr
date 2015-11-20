@@ -1,8 +1,10 @@
+#!/usr/bin/env node
+
 /*jslint nomen: true*/
 /*global require,console,process*/
 
 var fs = require('fs'),
-  markdown_habr = require('./'),
+  markdown_habr = require('../lib'),
   minimist = require('minimist');
 
 (function () {
