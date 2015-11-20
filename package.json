@@ -1,6 +1,6 @@
 {
   "name": "markdown-habr",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Parse github flavored markdown as habrahabr xml markup",
   "main": "lib",
   "repository": {
@@ -23,7 +23,7 @@
     "extend": "^3.0.0",
     "marked": "^0.3.5",
     "minimist": "^1.2.0",
-    "slug": "^0.9.1"
+    "slugify3": "0.0.4"
   },
   "bin": {
     "mdhabr": "bin/mdhabr.js"
