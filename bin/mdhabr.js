@@ -89,7 +89,7 @@ var fs = require('fs'),
     pedantic: args.pedantic !== undefined,
     gfm: args['no-gfm'] === undefined,
     sanitize: args.sanitize !== undefined,
-    punctuation: args['no-smart-punctiation'] === undefined,
+    punctuation: args['no-smart-punctuation'] === undefined,
     use_paragraph_tags: args['use-p'] !== undefined,
     remove_yo: args['remove-yo'] !== undefined
   };
