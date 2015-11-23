@@ -27,5 +27,6 @@
   },
   "bin": {
     "mdhabr": "bin/mdhabr.js"
-  }
+  },
+  tonicExampleFilename: "example.js"
 }
