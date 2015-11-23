@@ -1,4 +1,4 @@
-//#!/usr/bin/env node
+#!/usr/bin/env node
 
 /*jslint nomen: true*/
 /*eslint camelcase: 0, quotes: 0, no-trailing-spaces: 0, no-unused-vars: 0,no-console:0,
@@ -6,7 +6,7 @@ no-process-exit: 0*/
 /*global require,console,process*/
 
 var fs = require('fs'),
-  markdown_habr = require('../lib'),
+  Markdown_habr = require('../lib'),
   minimist = require('minimist');
 
 (function () {
@@ -51,7 +51,7 @@ var fs = require('fs'),
   }
 
   if (args.version !== undefined) {
-    console.log(markdown_habr.version);
+    console.log(new Markdown_habr().version);
     process.exit(0);
   }
 
@@ -100,7 +100,7 @@ var fs = require('fs'),
     remove_yo: args['remove-yo'] !== undefined
   };
 
-  var parser = new markdown_habr(parser_options);
+  var parser = new Markdown_habr(parser_options);
   parsed = parser.parse(file_contents);
 
   if (file_name_destination !== undefined) {
