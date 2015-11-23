@@ -6,73 +6,19 @@
 3 info using node@v0.10.35
 4 verbose node symlink C:\Program Files\nodejs\\node.exe
 5 verbose publish [ '.' ]
-6 verbose cache add [ '.', null ]
-7 verbose cache add name=undefined spec="." args=[".",null]
-8 verbose parsed url { protocol: null,
-8 verbose parsed url   slashes: null,
-8 verbose parsed url   auth: null,
-8 verbose parsed url   host: null,
-8 verbose parsed url   port: null,
-8 verbose parsed url   hostname: null,
-8 verbose parsed url   hash: null,
-8 verbose parsed url   search: null,
-8 verbose parsed url   query: null,
-8 verbose parsed url   pathname: '.',
-8 verbose parsed url   path: '.',
-8 verbose parsed url   href: '.' }
-9 silly lockFile 3a52ce78- .
-10 verbose lock . C:\Users\iandriyenko\AppData\Roaming\npm-cache\3a52ce78-.lock
-11 verbose tar pack [ 'C:\\Users\\iandriyenko\\AppData\\Roaming\\npm-cache\\markdown-habr\\0.0.5\\package.tgz',
-11 verbose tar pack   '.' ]
-12 verbose tarball C:\Users\iandriyenko\AppData\Roaming\npm-cache\markdown-habr\0.0.5\package.tgz
-13 verbose folder .
-14 info prepublish markdown-habr@0.0.5
-15 silly lockFile 1f1177db-tar tar://.
-16 verbose lock tar://. C:\Users\iandriyenko\AppData\Roaming\npm-cache\1f1177db-tar.lock
-17 silly lockFile 2448206d--markdown-habr-0-0-5-package-tgz tar://C:\Users\iandriyenko\AppData\Roaming\npm-cache\markdown-habr\0.0.5\package.tgz
-18 verbose lock tar://C:\Users\iandriyenko\AppData\Roaming\npm-cache\markdown-habr\0.0.5\package.tgz C:\Users\iandriyenko\AppData\Roaming\npm-cache\2448206d--markdown-habr-0-0-5-package-tgz.lock
-19 silly lockFile 1f1177db-tar tar://.
-20 silly lockFile 1f1177db-tar tar://.
-21 silly lockFile 2448206d--markdown-habr-0-0-5-package-tgz tar://C:\Users\iandriyenko\AppData\Roaming\npm-cache\markdown-habr\0.0.5\package.tgz
-22 silly lockFile 2448206d--markdown-habr-0-0-5-package-tgz tar://C:\Users\iandriyenko\AppData\Roaming\npm-cache\markdown-habr\0.0.5\package.tgz
-23 silly lockFile 7ca72060-ache-markdown-habr-0-0-5-package C:\Users\iandriyenko\AppData\Roaming\npm-cache\markdown-habr\0.0.5\package
-24 verbose lock C:\Users\iandriyenko\AppData\Roaming\npm-cache\markdown-habr\0.0.5\package C:\Users\iandriyenko\AppData\Roaming\npm-cache\7ca72060-ache-markdown-habr-0-0-5-package.lock
-25 silly lockFile 7ca72060-ache-markdown-habr-0-0-5-package C:\Users\iandriyenko\AppData\Roaming\npm-cache\markdown-habr\0.0.5\package
-26 silly lockFile 7ca72060-ache-markdown-habr-0-0-5-package C:\Users\iandriyenko\AppData\Roaming\npm-cache\markdown-habr\0.0.5\package
-27 silly lockFile 3a52ce78- .
-28 silly lockFile 3a52ce78- .
-29 silly publish { name: 'markdown-habr',
-29 silly publish   version: '0.0.5',
-29 silly publish   description: 'Parse github flavored markdown as habrahabr xml markup',
-29 silly publish   main: 'lib',
-29 silly publish   repository:
-29 silly publish    { type: 'git',
-29 silly publish      url: 'http://github.com/andrienko/markdown-habr' },
-29 silly publish   keywords: [ 'markdown', 'habrahabr', 'parser' ],
-29 silly publish   preferGlobal: true,
-29 silly publish   author: { name: 'andrienko' },
-29 silly publish   license: 'MIT',
-29 silly publish   bugs: { url: 'https://github.com/andrienko/markdown-habr/issues' },
-29 silly publish   homepage: 'https://github.com/andrienko/markdown-habr',
-29 silly publish   dependencies:
-29 silly publish    { extend: '^3.0.0',
-29 silly publish      marked: '^0.3.5',
-29 silly publish      minimist: '^1.2.0',
-29 silly publish      slugify3: '0.0.4' },
-29 silly publish   bin: { mdhabr: 'bin/mdhabr.js' },
-29 silly publish   gitHead: '99464026a59b959dc7bf03701f6142854308106a',
-29 silly publish   readme: '# markdown-habr\r\n\r\nHabrahabr is a russian social network / collective blog dedicated to IT and Computer Science. For its articles the social network is using a markup which has some HTML tags (with limited functionality) as well as some tags introduced by the site.  \r\n\r\nMarkdown-habr is a simple tool to compile markdown to habrahabr HTML.\r\n\r\n## Usage as command line tool\r\n\r\nIn order to use it you have to have node.js and npm installed and all required variables added to your PATH system variable.\r\n\r\n    npm install -g markdown-habr\r\n    mdhabr example.md example.html\r\n    \r\nThere are command-line parameters that affect some options of the parser.\r\n\r\n - `-z`, `--sanitize`               strip HTML tags from source\r\n - `-a`, `--no-anchors`             disable anchors creation\r\n - `-l`, `--no-links`               disable anchor link generation around Header tags \r\n - `-u`, `--no-slugs`               instead of using slugs generated from header text, for anchor links use \'h-[number]\' format\r\n - `-g`, `--no-gfm`                 disable github-flavored markdown\r\n - `-p`, `--pedantic`               conform to obscure parts of markdown.pl\r\n - `-z`, `--sanitize`               strip HTML tags from input\r\n - `-t`, `--no-smart-punctuation`   disable smart typograhic punctuation for things like quotes and dashes\r\n\r\n## Usage as library\r\n\r\nThe library utilizes [marked](https://www.npmjs.com/package/marked) markdown parser library with custom renderer.\r\n\r\n    var mdhabr = new require(\'markdown-habr\')();\r\n    \r\n    var result = mdhabr.parse("# Hello, I am a title \\nAnd I am some text\');\r\n    \r\nThere are also options available. You can specify some or all of them to override defaults:\r\n\r\n    var mdhabr = require(\'markdown-habr\');\r\n    \r\n    var options = {\r\n      // Add <anchor> tag before each heading with a slug\r\n      add_anchors:      true,\r\n      // Add <a href="#slug"> link to each heading. Only when add_anchors is enabled\r\n      add_anchor_links: true,\r\n      // Use title of article to generate a slug. Otherwise slugs will be h-1, h-2 etc.\r\n      anchor_slugs:     true,\r\n      // Pedantic feature of marked library. "Conform to obscure parts of markdown.pl"\r\n      pedantic:         false,\r\n      // "smart typograhic punctuation for things like quotes and dashes." of marked\r\n      punctuation:      true,\r\n      // Use github-flavored markdown\r\n      gfm:              true,\r\n      // Uses marked sanitize option to clean HTML tags from input\r\n      sanitize:         false,\r\n    };\r\n    \r\n    var result = mdhabr.parse("# Hello, I am a title \\nAnd I am some text\', options);\r\n    \r\n## Disclaimer\r\n\r\nI am making the tool for myself mostly. Don\'t be surprised by its illogics.',
-29 silly publish   readmeFilename: 'README.md',
-29 silly publish   _id: 'markdown-habr@0.0.5',
-29 silly publish   scripts: {},
-29 silly publish   _shasum: 'f101d6949919e7dd3b336e2afa3971af2b612bff',
-29 silly publish   _from: '.' }
-30 error need auth auth and email required for publishing
-30 error need auth You need to authorize this machine using `npm adduser`
-31 error System Windows_NT 6.2.9200
-32 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "publish"
-33 error cwd d:\ghabr
-34 error node -v v0.10.35
-35 error npm -v 1.4.28
-36 error code ENEEDAUTH
-37 verbose exit [ 1, true ]
+6 error Failed to parse json
+6 error Unexpected token t
+7 error File: d:\ghabr\package.json
+8 error Failed to parse package.json data.
+8 error package.json must be actual JSON, not just JavaScript.
+8 error
+8 error This is not a bug in npm.
+8 error Tell the package author to fix their package.json file. JSON.parse
+9 error System Windows_NT 6.2.9200
+10 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "publish"
+11 error cwd d:\ghabr
+12 error node -v v0.10.35
+13 error npm -v 1.4.28
+14 error file d:\ghabr\package.json
+15 error code EJSONPARSE
+16 verbose exit [ 1, true ]
