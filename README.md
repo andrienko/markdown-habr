@@ -26,7 +26,8 @@ There are command-line parameters that affect some options of the parser.
 
 The library utilizes [marked](https://www.npmjs.com/package/marked) markdown parser library with custom renderer.
 
-    var mdhabr = require('markdown-habr');
+    var mdhabr = new require('markdown-habr')();
+    
     var result = mdhabr.parse("# Hello, I am a title \nAnd I am some text');
     
 There are also options available. You can specify some or all of them to override defaults:
