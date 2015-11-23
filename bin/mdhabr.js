@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+//#!/usr/bin/env node
 
 /*jslint nomen: true*/
 /*global require,console,process*/
@@ -70,17 +70,21 @@ var fs = require('fs'),
     process.exit(0);
   }
 
-  if (file_name_source === undefined) {
+  if (file_name_source === undefined && args.text === undefined) {
     console.log("\nSpecify the filename. Use mdhabr -h for help");
     process.exit(1);
   }
 
-  if (!fs.existsSync(file_name_source)) {
+  if (!fs.existsSync(file_name_source) && args.text === undefined) {
     console.log('ERROR: path "' + file_name_source + '" does not exist :(');
     process.exit(1);
   }
 
-  file_contents = fs.readFileSync(file_name_source, 'utf8');
+  if (args.text !== undefined) {
+    file_contents = args.text;
+  } else {
+    file_contents = fs.readFileSync(file_name_source, 'utf8');
+  }
 
   parser_options = {
     add_anchors: args['no-anchors'] === undefined,
