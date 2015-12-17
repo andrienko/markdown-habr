@@ -1,5 +1,7 @@
 # markdown-habr
 
+[Package in npm](http://npmjs.com/package/markdown-habr)
+
 Habrahabr is a russian social network / collective blog dedicated to IT and Computer Science. For its articles the social network is using a markup which has some HTML tags (with limited functionality) as well as some tags introduced by the site.  
 
 Markdown-habr is a simple tool to compile markdown to habrahabr HTML.
