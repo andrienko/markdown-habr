@@ -21,19 +21,20 @@ var fs = require('fs'),
 
   args = minimist(process.argv.slice(2), {
     alias: {
-      f: 'source',
-      d: 'destination',
-      z: 'sanitize',
-      h: 'help',
       a: 'no-anchors',
-      l: 'no-links',
-      u: 'no-slugs',
+      d: 'destination',
+      f: 'source',
       g: 'no-gfm',
+      h: 'help',
+      i: 'increase-headings',
+      l: 'no-links',
+      o: 'remove-yo',
       p: 'pedantic',
-      t: 'no-smart-punctuation',
       r: 'use-p',
+      t: 'no-smart-punctuation',
+      u: 'no-slugs',
       v: 'version',
-      o: 'remove-yo'
+      z: 'sanitize'
     }
   });
 
@@ -63,6 +64,7 @@ var fs = require('fs'),
 
     console.log('-z, --sanitize               strip HTML tags from source');
     console.log('-a, --no-anchors             disable anchors creation');
+    console.log('-i, --increase-headings      increase level of all headings by 1 (h1 becomes h2 etc.)');
     console.log('-l, --no-links               disable anchor link generation around Header tags ');
     console.log('-u, --no-slugs               instead of using slugs generated from header text, for anchor links use h-[number] format');
     console.log('-g, --no-gfm                 disable github-flavored markdown');
@@ -70,7 +72,8 @@ var fs = require('fs'),
     console.log('-z, --sanitize               strip HTML tags from input');
     console.log('-t, --no-smart-punctuation   disable smart typograhic punctuation for things like quotes and dashes');
     console.log('-o, --remove-yo              replace "ё" with "е"');
-    console.log('-v, --version                show the version of the library currently used')
+    console.log('-v, --version                show the version of the library currently used');
+
 
     process.exit(0);
   }
@@ -100,7 +103,8 @@ var fs = require('fs'),
     sanitize: args.sanitize !== undefined,
     punctuation: args['no-smart-punctuation'] === undefined,
     use_paragraph_tags: args['use-p'] !== undefined,
-    remove_yo: args['remove-yo'] !== undefined
+    remove_yo: args['remove-yo'] !== undefined,
+    increase_headings: args['increase-headings'] !== undefined
   };
 
   var parser = new Markdown_habr(parser_options);
