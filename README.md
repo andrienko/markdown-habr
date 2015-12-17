@@ -1,10 +1,10 @@
 # markdown-habr
 
-[Package in npm](http://npmjs.com/package/markdown-habr)
+[Package in npm](http://npmjs.com/package/markdown-habr) | [Github repo](https://github.com/andrienko/markdown-habr)
 
 Habrahabr is a russian social network / collective blog dedicated to IT and Computer Science. For its articles the social network is using a markup which has some HTML tags (with limited functionality) as well as some tags introduced by the site.  
 
-Markdown-habr is a simple tool to compile markdown to habrahabr HTML.
+Markdown-habr is a simple tool to compile markdown to habrahabr HTML. It is represented by the library and the commandline tool to parse MD files.
 
 ## Usage as command line tool
 
@@ -23,6 +23,12 @@ There are command-line parameters that affect some options of the parser.
  - `-p`, `--pedantic`               conform to obscure parts of markdown.pl
  - `-z`, `--sanitize`               strip HTML tags from input
  - `-t`, `--no-smart-punctuation`   disable smart typograhic punctuation for things like quotes and dashes
+ - `-r`, `--use-p`                  add paragraph tags to paragraphs (habrahabr does not use them)
+ - `-o`, `--remove-yo`              replace "ё" letter with "е"
+ - `-v`, `--version`                current library version
+ - `-h`, `--help`                   this information
+ - `-d`, `--destination`            path to write result
+ - `-f`, `--source`                 file to compile
 
 ## Usage as library
 
@@ -51,7 +57,12 @@ There are also options available. You can specify some or all of them to overrid
       gfm:              true,
       // Uses marked sanitize option to clean HTML tags from input
       sanitize:         false,
-    };
+      // Replace Ё letter with Е
+      remove_yo:        false,
+      // Enable special tags (like habracut)
+      enable_specials:  true
+      
+};
     
     var result = mdhabr.parse("# Hello, I am a title \nAnd I am some text', options);
     

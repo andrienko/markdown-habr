@@ -58,6 +58,8 @@ var fs = require('fs'),
   if (args.help !== undefined || args._[0] === '?' || args['?'] !== undefined) {
 
     console.log("mdhabr is a tool to compile markdown files to habrahabr-ready markup\n\n");
+    console.log("Example:\nmdhabr example.md example.html");
+    console.log('If the destination is not specified the result will be outputted to stdout.');
 
     console.log('-z, --sanitize               strip HTML tags from source');
     console.log('-a, --no-anchors             disable anchors creation');
@@ -68,6 +70,7 @@ var fs = require('fs'),
     console.log('-z, --sanitize               strip HTML tags from input');
     console.log('-t, --no-smart-punctuation   disable smart typograhic punctuation for things like quotes and dashes');
     console.log('-o, --remove-yo              replace "ё" with "е"');
+    console.log('-v, --version                show the version of the library currently used')
 
     process.exit(0);
   }
