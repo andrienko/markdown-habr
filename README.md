@@ -6,6 +6,8 @@ Habrahabr is a russian social network / collective blog dedicated to IT and Comp
 
 Markdown-habr is a simple tool to compile markdown to habrahabr HTML. It is represented by the library and the commandline tool to parse MD files.
 
+Also [Github-flavored markdown](https://help.github.com/articles/github-flavored-markdown/) is supported.
+
 ## Usage as command line tool
 
 In order to use it you have to have node.js and npm installed and all required variables added to your PATH system variable.
@@ -35,7 +37,6 @@ There are command-line parameters that affect some options of the parser.
 The library utilizes [marked](https://www.npmjs.com/package/marked) markdown parser library with custom renderer.
 
     var mdhabr = new require('markdown-habr')();
-    
     var result = mdhabr.parse("# Hello, I am a title \nAnd I am some text');
     
 There are also options available. You can specify some or all of them to override defaults:
@@ -61,10 +62,50 @@ There are also options available. You can specify some or all of them to overrid
       remove_yo:        false,
       // Enable special tags (like habracut)
       enable_specials:  true
-      
-};
+    };
     
     var result = mdhabr.parse("# Hello, I am a title \nAnd I am some text', options);
+    
+## New syntax
+
+### Media links
+
+Links to twitter, slideshare or youtube,rutube and vimeo videos, wrapped with square braces, will be turned into `<twitter>`, `<slideshow>` and `<video>` tags:
+
+    [https://twitter.com/GreatDismal/status/677760641105457153]
+    <twitter>https://twitter.com/GreatDismal/status/677760641105457153</twitter>
+    
+    [http://www.slideshare.net/KyleDrake/bitcoin-the-cyberpunk-cryptocurrency]
+    <slideshow>http://www.slideshare.net/KyleDrake/bitcoin-the-cyberpunk-cryptocurrency</slideshow?
+    
+    [https://www.youtube.com/watch?v=I3obFcCw8mk]
+    <video>https://www.youtube.com/watch?v=I3obFcCw8mk</video>
+    
+Note that the link url has to match my regex, which is pretty dumb.
+    
+### Habracut
+
+To make a `<cut>` tag, use this:
+
+    --x--
+    
+You also can use text or use more than two dashes and add spaces:
+
+    -- x ------------- Читать дальше
+    
+This should produce the `<cut>` tag:
+
+    <cut>
+    <cut text="Read More">
+
+### Code highlighting
+
+Currently `<source lang=" ... "></source>` (with lang attribute) blocks are produced only when using github-flavored markdown fenced code blocks:
+
+    ```JavaScript
+    console.log('Hello, world');
+    ```
+As for 19 Dec 2015 Habrahabr supports following highlighting models: Bash, C#, C++, CSS, Diff, HTML, XML, Ini, Java, JavaScript, PHP, Perl, Python, Ruby, SQL, 1C, AVR Assembler, ActionScript, Apache, Axapta, CMake, CoffeeScript, DOS, .bat, Delphi, Django, Erlang, Erlang REPL, Go, Haskell, Lisp, Lua, MEL, Markdown, Matlab, Nginx, Objective C, Parser3, Python profile, RenderMan, Rust, Scala, Smalltalk, TeX, VBScript, VHDL, Vala
     
 ## Disclaimer
 
