@@ -4,9 +4,11 @@
 
 Habrahabr is a russian social network / collective blog dedicated to IT and Computer Science. For its articles the social network is using a markup which has some HTML tags (with limited functionality) as well as some tags introduced by the site.  
 
-Markdown-habr is a simple tool to compile markdown to habrahabr HTML. It is represented by the library and the commandline tool to parse MD files.
+Markdown-habr is a simple tool to compile markdown to habrahabr HTML. It is represented by the library and the commandline tool to parse MD files. I wrote the tool mostly for myself because for me it is easier to write articles using markdown. So don't be surprised by its illogics.
 
 Also [Github-flavored markdown](https://help.github.com/articles/github-flavored-markdown/) is supported.
+
+For some features like image alignment and `<br clear/>` it might be a better idea to use the html/xml itself without santitizing. Also some features are expected to be buggy, too.
 
 ## Usage as command line tool
 
@@ -34,7 +36,7 @@ There are command-line parameters that affect some options of the parser.
 
 ## Usage as library
 
-The library utilizes [marked](https://www.npmjs.com/package/marked) markdown parser library with custom renderer.
+The library utilizes [marked](https://www.npmjs.com/package/marked) markdown parser library with custom renderer plus some workarounds and ugly code parts to make it a bit more extensible.
 
     var mdhabr = new require('markdown-habr')();
     var result = mdhabr.parse("# Hello, I am a title \nAnd I am some text');
@@ -67,6 +69,8 @@ There are also options available. You can specify some or all of them to overrid
     var result = mdhabr.parse("# Hello, I am a title \nAnd I am some text', options);
     
 ## New syntax
+
+Some new markdown tags/behaviors were implemented just for ease of habr articles writing.
 
 ### Media links
 
@@ -106,7 +110,3 @@ Currently `<source lang=" ... "></source>` (with lang attribute) blocks are prod
     console.log('Hello, world');
     ```
 As for 19 Dec 2015 Habrahabr supports following highlighting models: Bash, C#, C++, CSS, Diff, HTML, XML, Ini, Java, JavaScript, PHP, Perl, Python, Ruby, SQL, 1C, AVR Assembler, ActionScript, Apache, Axapta, CMake, CoffeeScript, DOS, .bat, Delphi, Django, Erlang, Erlang REPL, Go, Haskell, Lisp, Lua, MEL, Markdown, Matlab, Nginx, Objective C, Parser3, Python profile, RenderMan, Rust, Scala, Smalltalk, TeX, VBScript, VHDL, Vala
-    
-## Disclaimer
-
-I am making the tool for myself mostly. Don't be surprised by its illogics.
